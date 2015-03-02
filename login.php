@@ -5,7 +5,7 @@ session_start();
 $nameErr = "";
 $loggedin = false;
 $error = false;
-$name = $login_result= "";
+$name = $login_result = "";
 
 function test_input($data) {
 	$data = trim($data);

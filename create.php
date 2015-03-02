@@ -81,10 +81,6 @@ session_start();
 			<br>
 			<input type="submit" value="Create">
 		</form>
-		
-		<?php 
-			echo $login_result;
-		?>
 		</div>
 </section>
 

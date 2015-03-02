@@ -76,6 +76,20 @@ body {
      background: #ebe8e8;
 }
 
+.Content a {
+	text-decoration:none;
+}
+
+#accountContent {
+	 margin-left: 100px;
+     margin-right: 100px;
+}
+
+#accountContent >div {
+	float: left;
+	width: 25%;
+}
+
 hr {
 	width: 200px;
 	margin-left : 0px;
@@ -105,7 +119,7 @@ hr {
   line-height: 20px;
 }
 
-.itembox #title {
+.itembox .ibtitle {
   float: left;
   padding:10px;
   font-size: 16px;
@@ -113,7 +127,7 @@ hr {
   line-height: 20px;
 }
 
-.itembox #image {
+.itembox .ibimage {
   float: left;
   background-image: url('https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRfM_FgQAxZyX6a3JndNgiIfD_vaWMjKy30rpqe7ttl55ipU2eP');
   background-repeat: no-repeat;
@@ -121,12 +135,12 @@ hr {
   height: 40px;
   width: 40px;
 }
-.itembox #date {
+.itembox .ibdate {
   float: right;
   padding:10px;
 }
 
-.itembox #content {
+.itembox .ibcontent {
   padding:10px;
   width: 100%;
   word-wrap: break-word;

@@ -31,31 +31,8 @@
 			echo '<br>';
 			echo "description: " . $line['description'];
 			echo '<br><br>';
-			echo '<form method="post" action="buy.php?';
-			echo "id=" . $line['id'];
-			echo '">';
-			echo '<input type="submit" value="Buy">'
-				, '</form>';
+			echo '<a href="buy.php?id=' . $line['id'] . '"> buy </a>';
 			echo '</div>';
-
-			/*
-			echo " " . $line['price'];
-			echo " " . $line['description'];
-			if(empty($line['sellerId'])) {
-				echo " Uknown Seller";
-			} else {
-				echo " " . $line['sellerId'];
-			}
-			echo " " . date("Y-m-d H:i:s");
-			echo '<br>';
-			echo json_encode($line);
-			//echo $line['id']); //remove the index of the item
-		    echo "\t<tr>\n";
-		    foreach ($line as $col_value) {
-		        echo "\t\t<td>$col_value</td>\n";
-		    }
-		    echo "\t</tr>\n";
-		    */
 		}
 		// Free resultset
 		pg_free_result($result);
