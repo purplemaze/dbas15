@@ -13,14 +13,12 @@ CREATE TABLE seller (
 CREATE TABLE buyer (
 	email				text	PRIMARY KEY REFERENCES person(email),
 	deliveryAddress		text	NOT NULL
-
 );
 
 CREATE TABLE driver (
 	driverId			text	PRIMARY KEY REFERENCES person(email),
 	bankRountingNumber	smallint	NOT NULL,
 	bankAccountNumber	bigint		NOT NULL
-
 );
 
 CREATE TABLE contract (
@@ -29,17 +27,17 @@ CREATE TABLE contract (
 	priceGross		integer,	
 	sellerId		text		NOT NULL,
 	buyerId			text		NOT NULL,
-	opendAt			timestamp 	NOT NULL,
-	opend 			boolean		NOT NULL,
+	openedAt		timestamp 	NOT NULL,
+	opened 			boolean		NOT NULL,
 	signedAt		timestamp,
-	signed 			boolean,
+	signed 			boolean		DEFAULT FALSE,
 	payedAt			timestamp,
-	payed 			boolean,
+	payed 			boolean		DEFAULT FALSE,
 	takenAt			timestamp,
-	taken 			boolean,
+	taken 			boolean		DEFAULT FALSE,
 	driverId		text,
 	completedAt		timestamp,
-	colpleted 		boolean,
+	completed 		boolean		DEFAULT FALSE,
 	FOREIGN KEY 	(sellerId) 	REFERENCES seller(email),
 	FOREIGN KEY 	(buyerId) 	REFERENCES buyer(email)	
 );
@@ -51,13 +49,12 @@ CREATE TABLE package (
 	weight			smallint	NOT NULL,
 	width			smallint	NOT NULL,
 	heigth			smallint	NOT NULL,
-	price 			integer		NOT NULL,
 	droppedofAt		timestamp, 	
-	dropped 		boolean, 		
+	dropped 		boolean		DEFAULT FALSE, 		
 	pickedupAt		timestamp,
-	pickedup 		boolean,
+	pickedup 		boolean		DEFAULT FALSE,
 	confirmedAt		timestamp,
-	confirmed 		boolean
+	confirmed 		boolean		DEFAULT FALSE
 );
 
 CREATE TABLE item (
@@ -66,13 +63,14 @@ CREATE TABLE item (
 	description		text,
 	name			text 		NOT NULL,
 	sellerId 		text,
+	createdAt		timestamp,
+	sold			boolean		DEFAULT FALSE,
 	FOREIGN KEY (sellerId) REFERENCES seller(email)
 );
 
 CREATE TABLE proposal (
 	id 					serial		NOT NULL,
-	buyerId				text		NOT NULL,		
-	deliveryAddress		text		NOT NULL,
+	buyerId				text		NOT NULL,
 	FOREIGN KEY (id) REFERENCES item(id),
 	FOREIGN KEY (buyerId) REFERENCES buyer(email),
 	PRIMARY KEY (id, buyerId)
