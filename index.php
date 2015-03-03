@@ -1,11 +1,7 @@
 <?php include 'head.php'; ?>
 <body>
 <?php 
-	if(!empty($_SESSION["_username"])) {
-		include 'header_loggedin.php';
-	}else {
-		include 'header.php';
-	}
+	include 'header_loggedin.php';
 ?>
 <section class="Content" id="content"> 
 	<div class="createCast">
@@ -13,7 +9,7 @@
 	<?php 
 		//connect to DB
 		include 'connectToDB.php';
-		$query = "SELECT * FROM item;";
+		$query = "SELECT * FROM item WHERE sold = FALSE;";
 		$result = pg_query($query) or die('Query failed: ' . pg_last_error());
 		// Printing results in HTML
 		while ($line = pg_fetch_assoc($result)) {

@@ -4,6 +4,10 @@ header {
   background: #ffffff;
 }
 
+#input {
+	display: none;
+}
+
 header h1 a {
 	text-decoration: none;
     font-family: 'Lato', sans-serif;

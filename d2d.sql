@@ -57,6 +57,19 @@ CREATE TABLE package (
 	confirmed 		boolean		DEFAULT FALSE
 );
 
+CREATE RULE autoconfirm AS ON UPDATE TO package WHERE 
+	OLD.confirmed = FALSE AND NEW.confirmed = TRUE
+	DO ALSO 
+	UPDATE contract SET completed = TRUE, completedAt = NOW() 
+	WHERE contract.contractId = OLD.contractId AND 
+		NOT EXISTS (
+			SELECT * FROM package 
+				WHERE package.contractId = OLD.contractId
+				AND package.confirmed = FALSE 
+				AND package.packageId != OLD.packageId
+			);
+
+
 CREATE TABLE item (
 	id 				serial 		PRIMARY KEY,
 	price 			integer		NOT NULL,
