@@ -48,7 +48,7 @@ CREATE TABLE package (
 	length			smallint	NOT NULL,
 	weight			smallint	NOT NULL,
 	width			smallint	NOT NULL,
-	heigth			smallint	NOT NULL,
+	height			smallint	NOT NULL,
 	droppedofAt		timestamp, 	
 	dropped 		boolean		DEFAULT FALSE, 		
 	pickedupAt		timestamp,
